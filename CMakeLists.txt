@@ -3,19 +3,19 @@ project(logger)
 
 enable_testing()
 
-if (${PROJECT_NAME} STREQUAL ${CMAKE_PROJECT_NAME})
-   include(FetchContent)
-   FetchContent_Declare(googletest
-      URL https://github.com/google/googletest/archive/release-1.8.0.zip
-      )
-   FetchContent_GetProperties(googletest)
-   if (NOT googletest_POPULATED)
-      FetchContent_Populate(googletest)
-      add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_ALL)
-   endif()
+include(FetchContent)
+FetchContent_Declare(googletest
+   URL https://github.com/google/googletest/archive/release-1.8.0.zip
+   )
+FetchContent_GetProperties(googletest)
+if (NOT googletest_POPULATED)
+   FetchContent_Populate(googletest)
+   add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
-add_library(${PROJECT_NAME} logger.cpp)
+set(libName ${PROJECT_NAME})
+add_library(${libName} logger.cpp)
+target_include_directories(${libName} PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 
 set(testName ${PROJECT_NAME}_unittest)
 add_executable(${testName} logger-test.cpp)
