@@ -3,15 +3,8 @@ project(logger)
 
 enable_testing()
 
-include(FetchContent)
-FetchContent_Declare(googletest
-   URL https://github.com/google/googletest/archive/release-1.8.0.zip
-   )
-FetchContent_GetProperties(googletest)
-if (NOT googletest_POPULATED)
-   FetchContent_Populate(googletest)
-   add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_ALL)
-endif()
+include(externals.cmake)
+AddExternals(googletest)
 
 set(libName ${PROJECT_NAME})
 add_library(${libName} logger.cpp)
