@@ -4,5 +4,6 @@
 
 TEST(Logger, CanConstructAndDestruct)
 {
+   FAIL("Boo");
    Logger log;
 }

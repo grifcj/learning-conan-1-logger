@@ -6,7 +6,7 @@ class LoggerConan(ConanFile):
     license = "Beerware"
     author = "Connor Griffith grifcj@gmail.com"
     url = "https://github.com/grifcj/cmake-logger"
-    description = "A logger that punked Chuck Norris and lived"
+    description = "A logger that punked Chuck Norris"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
@@ -20,6 +20,7 @@ class LoggerConan(ConanFile):
         cmake = CMake(self)
         cmake.configure()
         cmake.build()
+        cmake.build(target='test')
 
     def package(self):
         self.copy("*.h", dst="include")
