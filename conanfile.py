@@ -10,7 +10,7 @@ class LoggerConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
-    generators = "cmake"
+    generators = "cmake_find_package"
     build_requires = ["gtest/1.8.1@bincrafters/stable"]
 
     def source(self):
@@ -20,7 +20,7 @@ class LoggerConan(ConanFile):
         cmake = CMake(self)
         cmake.configure()
         cmake.build()
-        cmake.build(target='test')
+        cmake.test()
 
     def package(self):
         self.copy("*.h", dst="include")
