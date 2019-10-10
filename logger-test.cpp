@@ -6,3 +6,8 @@ TEST(Logger, CanConstructAndDestruct)
 {
    Logger log;
 }
+
+TEST(Logger, CanLogMessage)
+{
+   Logger().Log("Message");
+}

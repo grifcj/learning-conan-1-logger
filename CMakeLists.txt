@@ -17,7 +17,7 @@ get_property(exclude DIRECTORY ${PROJECT_SOURCE_DIR} PROPERTY EXCLUDE_FROM_ALL S
 if (NOT exclude)
    enable_testing()
    add_executable(logger_unittest logger-test.cpp)
-   target_link_libraries(logger_unittest PUBLIC gtest::gtest)
+   target_link_libraries(logger_unittest PUBLIC logger gtest::gtest)
    add_test(NAME logger::unittest COMMAND $<TARGET_FILE:logger_unittest>)
 endif()
 
