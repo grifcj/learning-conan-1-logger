@@ -1,2 +1,1 @@
-# cmake-logger
-Logger for cmake project
+Simple logger library for studying dependency managemen
