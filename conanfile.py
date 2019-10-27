@@ -6,6 +6,9 @@ base = python_requires("conanbase/1.0.0-nightly@grifcj/dev")
 class LoggerConan(base.get_conanfile()):
     name = "logger"
     version = "1.0.0-nightly"
+    license = "MIT"
+    description = "A logger for learning"
+    url = "https://github.com/grifcj/cmake-logger"
     scm = {
         "type": "git",
         "url": "https://github.com/grifcj/cmake-logger",
